@@ -19,8 +19,8 @@
 │                    ├──service //业务逻辑层
 │                    ├──util //帮助类
 │                    ├──需要执行的job //实体类
-│                  └──DemoApplication.java //整个项目的启动类  
-│          └── resources
+│                    └──DemoApplication.java //整个项目的启动类  
+│            └── resources
 │            │     ├── application-dev.properties  //开发环境
 │            │     ├── application-prod.properties //生产环境
 │            │     ├── application-test.properties //测试环境

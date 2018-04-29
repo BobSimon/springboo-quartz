@@ -58,7 +58,7 @@ public class LogAspect {
         log.setCreateTime(new Date());
         log.setType(type.toString());
         log.setText(text);
-
+        log.setUserId(123);
         Object[] obj= jp.getArgs();
         StringBuffer buffer=new StringBuffer();
         if(obj!=null){
@@ -68,6 +68,7 @@ public class LogAspect {
                 buffer.append("]");
             }
         }
+
         log.setParam(buffer.toString());
 
         /*********/

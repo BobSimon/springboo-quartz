@@ -26,7 +26,7 @@ public class SysLog {
     /**
      * 用户名
      */
-    private String userName;
+    private long userId;
 
     /**
      * ip地址

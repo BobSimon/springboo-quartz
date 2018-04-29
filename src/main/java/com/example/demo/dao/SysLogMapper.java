@@ -46,6 +46,4 @@ public interface SysLogMapper {
      * @return
      */
     List<SysLog> selectListByPage(SysLog sysLog);
-
-
 }

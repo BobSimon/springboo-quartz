@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.SysLogMapper">
+
+  <sql id="Base_Column_List">
+     id,userid,ip,type,text,param,create_time
+  </sql>
+
+  <insert id="insert" parameterType="com.example.demo.entity.SysLog">
+    insert into t_sys_log (userid,ip,type,text,param,create_time)
+    values (#{userId,jdbcType=INTEGER}, #{ip,jdbcType=VARCHAR},
+       #{type,jdbcType=VARCHAR}, #{text,jdbcType=VARCHAR},#{param,jdbcType=VARCHAR},
+       #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultType="com.example.demo.util.DbResultMap">
+    select <include refid="Base_Column_List" />  from t_sys_log
+     where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <!--删除系统日志-->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+     delete from t_sys_log where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <!--分页查询系统日志-->
+  <select id="selectListByPage" parameterType="com.example.demo.entity.SysLog" resultType="com.example.demo.util.DbResultMap">
+     SELECT <include refid="Base_Column_List"/> from t_sys_log
+     <where>
+       <if test="userid!=null and userid!=''"> and userid like "%" #{userid} "%"</if>
+       <if test="type!=null and type!=''"> and type like "%" #{type} "%"</if>
+      </where>
+    ORDER  BY create_time desc
+  </select>
+
+</mapper>

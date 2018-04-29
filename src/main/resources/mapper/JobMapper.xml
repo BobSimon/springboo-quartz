@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.JobAndTriggerMapper" >
+
+    <select id="getJobAndTriggerDetails" resultType="com.example.demo.entity.JobAndTrigger">
+			SELECT
+				qrtz_job_details.JOB_NAME,
+				qrtz_job_details.JOB_GROUP,
+				qrtz_job_details.JOB_CLASS_NAME,
+				qrtz_triggers.TRIGGER_NAME,
+				qrtz_triggers.TRIGGER_GROUP,
+				qrtz_cron_triggers.CRON_EXPRESSION,
+				qrtz_cron_triggers.TIME_ZONE_ID
+			FROM
+				qrtz_job_details
+			JOIN qrtz_triggers
+			JOIN qrtz_cron_triggers ON qrtz_job_details.JOB_NAME = qrtz_triggers.JOB_NAME
+			AND qrtz_triggers.TRIGGER_NAME = qrtz_cron_triggers.TRIGGER_NAME
+			AND qrtz_triggers.TRIGGER_GROUP = qrtz_cron_triggers.TRIGGER_GROUP
+    </select>
+
+	<!-- 查询定时任务的数量 -->
+	<select id="listQuartzEntityNum" parameterType="com.example.demo.entity.JobAndTrigger" resultType="long">
+		SELECT COUNT(1) FROM QRTZ_JOB_DETAILS AS job
+		 LEFT JOIN QRTZ_TRIGGERS AS tri ON job.JOB_NAME = tri.JOB_NAME
+		 LEFT JOIN QRTZ_CRON_TRIGGERS AS cron ON cron.TRIGGER_NAME = tri.TRIGGER_NAME
+		 WHERE tri.TRIGGER_TYPE = 'CRON'
+	</select>
+
+	<!--  查询某个定时任务  -->
+	<select id="listQuartzEntity" resultType="com.example.demo.entity.JobAndTrigger">
+		SELECT  job.JOB_NAME AS jobName,job.JOB_GROUP AS jobGroup,
+                 job.DESCRIPTION AS description,job.JOB_CLASS_NAME AS jobClassName,
+                 cron.CRON_EXPRESSION AS cronExpression,tri.TRIGGER_NAME AS triggerName,
+                 tri.TRIGGER_STATE AS triggerState,job.JOB_NAME AS oldJobName,
+                 job.JOB_GROUP AS oldJobGroup
+         FROM  QRTZ_JOB_DETAILS AS job
+               LEFT JOIN QRTZ_TRIGGERS AS tri ON job.JOB_NAME = tri.JOB_NAME
+               LEFT JOIN QRTZ_CRON_TRIGGERS AS cron ON cron.TRIGGER_NAME = tri.TRIGGER_NAME
+        WHERE tri.TRIGGER_TYPE = 'CRON'
+		<if test="jobName !=''">AND job.JOB_NAME = #{jobName}</if>
+
+	</select>
+
+</mapper>

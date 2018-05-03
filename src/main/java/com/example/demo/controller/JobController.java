@@ -49,7 +49,7 @@ public class JobController{
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @ApiOperation(value="新建任务")
     @PostMapping("/add")
-    @Log(desc = "新增定时任务",type = Log.LOG_TYPE.ADD)
+    //@Log(desc = "新增定时任务",type = Log.LOG_TYPE.ADD)
     public Result save(JobAndTrigger quartz){
         log.info("新增任务");
         try {
@@ -112,7 +112,7 @@ public class JobController{
      */
     @ApiOperation(value="触发任务")
     @PostMapping("/trigger")
-    @Log(desc = "触发定时任务")
+    //@Log(desc = "触发定时任务")
     public  Result trigger(JobAndTrigger quartz,HttpServletResponse response) {
         log.info("触发任务");
         try {
@@ -133,7 +133,7 @@ public class JobController{
      */
     @ApiOperation(value="停止任务")
     @PostMapping("/pause")
-    @Log(desc = "停止任务")
+    //@Log(desc = "停止任务")
     public  Result pause(JobAndTrigger quartz,HttpServletResponse response) {
         log.info("停止任务");
         try {
@@ -154,7 +154,7 @@ public class JobController{
      */
     @ApiOperation(value="恢复任务")
     @PostMapping("/resume")
-    @Log(desc = "恢复任务")
+    //@Log(desc = "恢复任务")
     public  Result resume(JobAndTrigger quartz,HttpServletResponse response) {
         log.info("恢复任务");
         try {
@@ -175,7 +175,7 @@ public class JobController{
      */
     @ApiOperation(value="移除任务")
     @PostMapping("/remove")
-    @Log(desc = "移除任务")
+   // @Log(desc = "移除任务")
     public Result remove(JobAndTrigger quartz,HttpServletResponse response) {
         try {
             TriggerKey triggerKey = TriggerKey.triggerKey(quartz.getJobName(), quartz.getJobGroup());

@@ -12,7 +12,6 @@ import org.springframework.context.annotation.ComponentScan;
  * @Description:
  * @Date: Created in 11:40 2018\4\20
  */
-
 /*@ComponentScan("com.example.demo")*/
 @MapperScan("com.example.demo.dao")
 public class DemoApplication implements CommandLineRunner {

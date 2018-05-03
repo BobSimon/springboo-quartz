@@ -61,7 +61,7 @@ JDK1.8、Maven、IDEA
 
 ## 技术栈
 
-SpringBoot1.5.2、thymeleaf、quartz2.3.0、iview、vue、layer、AdminLTE、bootstrap、lombok、aop
+SpringBoot1.5.10、thymeleaf、quartz2.3.0、iview、vue、layer、AdminLTE、bootstrap、lombok、aop
 
 ## 启动说明
 - 项目使用的数据库为MySql，选择resources/sql中的tables_mysql_innodb.sql文件初始化数据库信息。
@@ -99,9 +99,3 @@ SpringBoot1.5.2、thymeleaf、quartz2.3.0、iview、vue、layer、AdminLTE、boo
 - 任务移除
 - Job中注入service为空的问题
 - 系统启动，如果数据库任务为零则初始化测试任务，用于测试
-
-## 待集成功能
-
-- 系统登录以及权限管理
-- 任务停止和开启
-- 任务列表搜索以及分页

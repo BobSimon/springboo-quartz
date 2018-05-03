@@ -34,7 +34,10 @@
 │   └── pom启动整个项目的依赖 //
 
 ```
+
 # spring-boot-quartz
+
+## 这里本人模仿科帮网弄了quartz
 
 基于spring-boot+quartz的CRUD动态任务管理系统，适用于中小项目。
 
@@ -76,19 +79,20 @@ SpringBoot1.5.10、thymeleaf、quartz2.3.0、iview、vue、layer、AdminLTE、bo
 
 ## 项目截图
 
-![输入图片说明](https://gitee.com/uploads/images/2018/0331/181340_cfbf6c90_87650.png "1.png")
+![输入图片说明](/doc/pic1.png "登录界面")
 
-![输入图片说明](https://gitee.com/uploads/images/2018/0331/181347_8b91b864_87650.png "2.png")
+![输入图片说明](/doc/主页面.png "主页面")
 
-![输入图片说明](https://gitee.com/uploads/images/2018/0331/181352_cfcdce10_87650.png "3.png")
+![输入图片说明](/doc/个人主页.png "个人主页")
 
-![输入图片说明](https://gitee.com/uploads/images/2018/0331/181357_e41c9cd9_87650.png "4.png")
+![输入图片说明](/doc/任务页面.png "任务页面")
 
-![输入图片说明](https://gitee.com/uploads/images/2018/0331/181403_b82f6edd_87650.png "5.png")
+![输入图片说明](/doc/表达式.png "表达式生成器页面")
 
-![输入图片说明](https://gitee.com/uploads/images/2018/0331/181409_b5623f27_87650.png "6.png")
+![输入图片说明](/doc/添加定时任务.png "添加定时任务界面")
 
-![表达式生成器](https://gitee.com/uploads/images/2018/0402/180033_437a1186_87650.png "7.png")
+![表达式生成器](/doc/页面配色.png "配色页面")
+
 
 ## 已实现功能
 
